@@ -1,0 +1,147 @@
+body{
+    overflow: scroll;
+}
+
+.description_input{
+    max-width: 300px;
+    min-width: 100px;
+    max-height: 150px;
+    min-height: 50px;
+}
+
+body.ui_wrapper_clicked{
+    height: 100%;
+    overflow: hidden;
+}
+
+.homepage{
+    position: relative;
+}
+
+.header_wrapper{
+    display: flex;
+    /* min-width: 935px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 50px;
+}
+
+.header_wrapper.ui_wrapper_clicked, .tool_wrapper.ui_wrapper_clicked, .calendar_table_wrapper.ui_wrapper_clicked{
+    filter: blur(3px);
+}
+
+.header_wrapper > div{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.title_wrapper{
+    width: 10%;
+    margin-top: 2px;
+}
+
+.title_wrapper > a{
+    padding-left: 20px;
+}
+
+.title_wrapper > a {
+    text-decoration: none;
+    color: black;
+    font-size: 32px;
+}
+
+.center_wrapper{
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    max-width:  1550px;
+}
+
+.center_wrapper > *{
+    font-size: 32px;
+    text-decoration: none;
+    color: black;
+}
+
+
+.center_wrapper > div{
+    width: 20%;
+    text-align: center;
+}
+
+.timer_wrapper > a{
+    text-decoration: none;
+    color: black;
+}
+
+.css-5nwj3y{
+    width: 9%;
+    justify-content: end;
+    margin-top: 5px;
+}
+
+.css-5nwj3y > button > div > svg{
+    width: 43px;
+    height: auto;
+}
+
+svg > path{
+    pointer-events: none;
+}
+
+.calendar_wrapper, .timer_wrapper{
+    margin-top: 2px;
+}
+
+.ui_wrapper{
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 40%;
+    height: auto;
+    min-width: 400px;
+    background-color: white;
+}
+
+.ui_wrapper.clicked{
+    visibility: visible;
+    pointer-events: all;
+}
+
+.ui_wrapper > *:not(:last-child){
+    font-size: 28px;
+}
+
+.ui_wrapper_title{
+    text-align: center;
+}
+
+.ui_wrapper > *:not(:first-child){
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.title_input{
+    margin-left: 8.5px;
+}
+
+.date_input{
+    margin-left: 8.5px;
+}
+
+.time_to_input{
+    margin-left: 9.5px;
+}
+
+.ui_wrapper > * > select,input , .ui_wrapper > * > div > textarea{
+    font-size: 25px;
+}
+
+.asterisk{
+    color: red;
+    margin-left: 5px;
+}

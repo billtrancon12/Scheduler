@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, height=deivice-height, initial-scale=1.0">
+    <link rel="stylesheet" href="./loginGUI.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class='login_wrapper'>
+        <div class="login_container">
+            <span class="authentication_title">Login</span>
+            <!-- <form class="authentication" > -->
+                <div class="login_username">
+                    <input class="username_input" id="username" type="text" placeholder="Enter your username">
+                </div>
+                <div class="login_password">
+                    <input class="password_input" id="password" type="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" value="Login" class="authentication_login" onClick="loginController()">Login</button>
+            <!-- </form> -->
+        </div>
+    </div>
+    <script language="JavaScript">
+        window.addEventListener('resize', (event) => {
+            let textFont = window.innerWidth * 0.03;
+            if(textFont > 20){
+                document.getElementsByClassName("authentication_title")[0].style.fontSize = textFont + "px";
+                
+                textFont = window.innerWidth * 0.02;
+                document.getElementsByClassName("username_input")[0].style.fontSize = textFont  + "px";
+                document.getElementsByClassName("password_input")[0].style.fontSize = textFont + "px";
+    
+                let loginFont = window.innerWidth * 0.015;
+                document.getElementsByClassName("authentication_login")[0].style.fontSize = loginFont + "px";
+    
+            }
+        })
+    </script>
+    <script src="./authentication.js"></script>
+    <script src="./database.js"></script>
+    <script src="./user.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+.blockup{
+    height: max(200px, min(30vh, 500px));
+    width: 100%;
+} 
+
+.signup_form{
+    text-align: left;
+}
+
+.signup_wrapper{
+    text-align: center;
+}
+
+.signup_container{
+    width: fit-content;
+    display: inline-block;
+}
+
+.signup_input_wrapper{
+    margin-top: 10px;
+}
+
+.signup_input_wrapper:not(:first-child){
+    margin-top: 15px;
+}
+
+.signup_input_wrapper > .input{
+    font-size: max(20px, min(1.3vw, 40px));
+    max-width: 400px;
+    min-width: 200px;
+}
+
+.signup_title{
+    font-size: max(22px, min(1.4vw, 42px));
+    margin-right: 15px;
+}
+
+.sign_in_redirect_wrapper{
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+
+.sign_in_link{
+    text-decoration: none;
+    font-size: max(16px, min(1.0vw, 35px));
+    color: blue;
+}
+
+.sign_in_link:focus{
+    color: darkblue;
+}
+
+.button_wrapper{
+    text-align: center;
+    margin-right: 20px;
+}

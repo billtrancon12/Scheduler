@@ -1,0 +1,23 @@
+.create_account_wrapper{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+}
+.create_account_container{
+    position: relative;
+    text-align: center;
+}
+
+.create_account_title{
+    font-size: 3vw;
+}
+
+.username_input, .password_input, .reenter_password_input{
+    font-size: 2vw;
+    margin-top: 15px;
+}
+
+.signup{
+    margin-top: 15px;
+    font-size: 1.5vw;
+}

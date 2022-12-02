@@ -1,0 +1,23 @@
+.tool_wrapper{
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+
+.react-datepicker-wrapper{
+    width: 70%;
+    padding-left: 70px;
+    text-align: center;
+}
+
+.calendar_tool_wrapper{
+    width: 13%;
+    margin-left: 10px;
+    padding-top: 5px;
+    text-align: left;
+}
+
+.calendar_tool_wrapper > div > svg{
+    height: 100%;
+    width: 35px;
+}
