@@ -1,0 +1,20 @@
+.calendar_navigation_wrapper{
+    display: flex;
+    justify-content: end;
+    width: 16%;
+    margin-right: 10px;
+}
+
+.calendar_navigation_wrapper > div > svg{
+    height: 100%;
+    width: 45px;
+    pointer-events: all;
+}
+
+.calendar_navigation_wrapper > div > svg.loading{
+    pointer-events: none;
+}
+
+path.loading{
+    pointer-events: none;
+}

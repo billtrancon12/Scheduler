@@ -1,0 +1,95 @@
+.blockup{
+    height: max(200px, min(30vh, 500px));
+    width: 100%;
+}
+
+.login_wrapper{
+    text-align: center;
+}
+
+.login_container{
+    width: fit-content;
+    display: inline-block;
+}
+
+.login_input_wrapper{
+    margin-top: 10px;
+}
+
+.login_input_wrapper:not(:first-child){
+    margin-top: 15px;
+}
+
+.login_input_wrapper > .input{
+    font-size: max(20px, min(1.3vw, 40px));
+    max-width: 400px;
+    min-width: 200px;
+}
+
+.login_title{
+    font-size: max(22px, min(1.4vw, 42px));
+}
+
+.button{
+    background-color: white;
+    margin-top: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: max(15px, min(1.0vw, 35px));
+    box-shadow: 0px 1.23px 1.23px 0px rgba(0,0,0,0.5);
+}
+
+.forgot_password_wrapper{
+    text-align: end;
+    margin-top: 10px;
+}
+.forgot_password{
+    text-decoration: none;
+    font-size: max(16px, min(1.0vw, 35px));
+    color: blue;
+}
+
+.forgot_password:focus{
+    color: darkblue;
+}
+
+.separator{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.separator > span{
+    font-size: max(15px, min(0.9vw, 33px));
+}
+
+.sign_up_wrapper{
+    margin-top: 5px;
+}
+
+.sign_up{
+    text-decoration: none;
+    color: blue;
+    font-size: max(16px, min(1.1vw, 37px));
+}
+
+.niceText{
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+}
+
+.error_message{
+    margin-top: 5px;
+    text-align: left;
+}
+
+.error{
+    color: red;
+    font-size: max(13px, min(0.85vw, 32px));
+}
+
+.input + svg{
+    margin-left: 5px;
+
+}
