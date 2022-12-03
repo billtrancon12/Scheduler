@@ -1,0 +1,21 @@
+.setting_form{
+  text-align: center;
+  display: block;
+}
+
+.setting_form > *{
+  font-size: 26px;
+}
+
+.setting_form > button{
+  font-size: 18px;
+  padding-left: 8px;
+  padding-top: 6px;
+  padding-right: 8px;
+  padding-bottom: 6px;
+  margin-top: 15px;
+}
+
+.setting_form > *:not(:first-of-type){
+  margin-top: 10px;
+}

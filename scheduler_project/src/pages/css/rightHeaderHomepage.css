@@ -1,0 +1,23 @@
+.right_header_homepage_wrapper{
+    display: flex;
+    width: 10%;
+    justify-content: flex-end;
+}
+
+.inbox_icon_wrapper{
+    position: relative;
+    width: 50px;
+}
+
+.inbox_icon_wrapper > svg{
+    height: auto;
+    width: 31px;
+    top: 30%;
+    right: 80%;
+    position: absolute;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}

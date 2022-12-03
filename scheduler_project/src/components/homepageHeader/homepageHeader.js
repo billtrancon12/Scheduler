@@ -2,9 +2,15 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import CenterHeaderHomepage from './centerHeaderHomepage';
-import AccountMenu from '../ReactMenu';
+import RightHeaderHomepage from './rightHeaderHomepage';
 
 export default class HomepageHeader extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      inbox: [],
+    }
+  }
   render() {
     return (
         <div className='header_wrapper'>
@@ -12,14 +18,18 @@ export default class HomepageHeader extends Component {
                 <Link to='/homepage'>Scheduler</Link>
             </div>
             <CenterHeaderHomepage time={this.props.time}></CenterHeaderHomepage>
-            <AccountMenu logoutHandler={this.props.logoutHandler}></AccountMenu>
+            <RightHeaderHomepage logoutHandler={() => this.logoutHandler()} notification={this.props.notification}></RightHeaderHomepage>
         </div>
 
     )
+  }
+
+  logoutHandler(){
+    sessionStorage.setItem("login", false);
   }
 }
 
 HomepageHeader.propTypes = {
     time: PropTypes.string.isRequired,
-    logoutHandler: PropTypes.func.isRequired
+    notification: PropTypes.array.isRequired
 }

@@ -21,7 +21,7 @@ export default class ToolHomepage extends Component {
             <AddCircleIcon onClick={this.props.addHandler} id="add_circle"></AddCircleIcon>
           </div>
         </div>
-				<DatePicker selected={this.props.calendarDate} onChange={this.props.onChangeDate}></DatePicker>
+				<DatePicker selected={this.props.calendarDate} onChange={this.props.onChangeDate} popperPlacement="auto"></DatePicker>
         <NavigateCalendarArrow navigateCalendar={this.props.navigateCalendar}></NavigateCalendarArrow>
       </div>
     )

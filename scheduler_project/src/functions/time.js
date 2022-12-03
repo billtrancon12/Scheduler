@@ -115,7 +115,7 @@ module.exports.formatTime = function formatTime(dateObj, window){
 			return hourString + ":" + minuteString + ":" + secondString + " PM";
 	}
 	else{
-		return hourString + ":" + minuteString + ":" + secondString;
+		return hourString + " : " + minuteString + ":" + secondString;
 	}
 }
 

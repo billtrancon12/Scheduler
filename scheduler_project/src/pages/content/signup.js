@@ -30,7 +30,7 @@ export default class SignUp extends Component {
 
 	render() {
 		document.title = "Create account"
-    if(!this.state.create){
+    if(sessionStorage.getItem('login') !== "true"){
       return(
 			  <div className='signup_wrapper'>
           <div className='blockup'></div>
@@ -42,11 +42,10 @@ export default class SignUp extends Component {
         </div>
       )
     }
-    else{
-      return(
-        <Navigate to="/homepage"></Navigate>
-      )
-    }
+
+    return(
+       <Navigate to="/homepage"></Navigate>
+    )
   }
 
   handleChange(e){

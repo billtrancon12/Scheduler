@@ -3,6 +3,7 @@ const cors = require('cors');
 const app = express();
 const {MongoClient} = require('mongodb');
 const {updateData, retrieveData} = require('../../../netlify-express/src/database_tools');
+const { isHour, isMin } = require('./util');
 require('dotenv').config();
 
 async function getUser(username){
@@ -24,7 +25,6 @@ async function getUser(username){
 }
 
 async function updateUserCalendar(username, date, calendar){
-    // eslint-disable-next-line no-undef
 	const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.liou3p7.mongodb.net/?retryWrites=true&w=majority`
 	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });   // Create a client end-point
     
@@ -51,6 +51,24 @@ async function getUserCalendar(username, date){
 		// date will be a number in this format: month+day+year. For example September 11, 2022 will be 09112022. The calendar retrieving from the database will be for
 		// a full week. And date will always be on Monday
 		const result = await retrieveData(client, 'SchedulerProject', 'UserCalendar', {username: username, date: date});  // Get a user info based on the username
+		await client.close();
+		return JSON.parse(result.body);
+	}
+	catch(err){
+		console.error(err);
+		return undefined;
+	}
+}
+
+async function addReminderInterval(username, interval){
+	const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.liou3p7.mongodb.net/?retryWrites=true&w=majority`
+	const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });   // Create a client end-point
+				
+	try{
+		await client.connect();
+		// date will be a number in this format: month+day+year. For example September 11, 2022 will be 09112022. The calendar retrieving from the database will be for
+		// a full week. And date will always be on Monday
+		const result = await updateData(client, 'SchedulerProject', 'ReminderInterval', {username: username}, {$set: {username: username, hour: interval.hour, min: interval.min}}, {upsert: true});
 		await client.close();
 		return JSON.parse(result.body);
 	}
@@ -125,6 +143,22 @@ app.post('/create_schedule', async function(req, res){
 	}
 
 	res.json(JSON.stringify({status: true, data: updateStatus.data}));
+})
+
+app.post('/reminder', async function(req, res){
+	console.log(req.body.hour)
+	if(!isHour(req.body.hour)){
+		res.json(JSON.stringify({status: false, message: "Please enter hour within range from 0-23!"}));
+		return;
+	}
+
+	if(!isMin(req.body.min)){
+		res.json(JSON.stringify({status: false, message: "Please enter minute within range from 0-59"}));
+		return;
+	}
+
+	await addReminderInterval(req.body.username, {hour: req.body.hour.toString(), min: req.body.min.toString()});
+	res.json(JSON.stringify({status: true, message: "Change reminder interval successfully!"}));
 })
 
 async function createAndUpdateCalendar(event, calendar){
