@@ -9,9 +9,9 @@ import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
-import InboxIcon from '@mui/icons-material/Inbox';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default function AccountMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -75,22 +75,20 @@ export default function AccountMenu(props) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
-          <Avatar /> Profile
-        </MenuItem>
+        <Link to={props.profileLink}>
+          <MenuItem>
+            <Avatar /> Profile
+          </MenuItem>
+        </Link>
         <Divider />
-        <MenuItem>
-          <ListItemIcon>
-            <InboxIcon fontSize="small" />
-          </ListItemIcon>
-          Notification
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
-          Settings
-        </MenuItem>
+        <Link to={props.settingLink}>
+          <MenuItem onClick={props.navigateSetting}>
+            <ListItemIcon>
+              <Settings fontSize="small" />
+            </ListItemIcon>
+            Settings
+          </MenuItem>
+        </Link>
         <MenuItem onClick={props.logoutHandler}>
           <ListItemIcon>
             <Logout fontSize="small" />
@@ -103,5 +101,8 @@ export default function AccountMenu(props) {
 }
 
 AccountMenu.propTypes = {
-  logoutHandler: PropTypes.func
+  logoutHandler: PropTypes.func,
+  navigationLink: PropTypes.string,
+  settingLink: PropTypes.string,
+  profileLink: PropTypes.string,
 }

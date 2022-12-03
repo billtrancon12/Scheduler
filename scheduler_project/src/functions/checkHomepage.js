@@ -1,14 +1,14 @@
 export function resizeHeader(){
     const header = document.getElementsByClassName('header_wrapper')[0];
-    let table = document.getElementsByClassName('calendar_table_wrapper')[0];	
-    if(header !== undefined && header !== null)
+    const table = document.getElementsByClassName('calendar_table_wrapper')[0];	
+    if(header !== undefined && header !== null && table !== null && table !== undefined)
         header.style.width = table.offsetWidth + 'px';
 }
 
 export function resizeToolHomepage(){
     const toolHomepage = document.getElementsByClassName('tool_wrapper')[0];
     const table = document.getElementsByClassName('calendar_table_wrapper')[0];	
-    if(toolHomepage !== undefined && toolHomepage !== null)
+    if(toolHomepage !== undefined && toolHomepage !== null && table !== null && table !== undefined)
         toolHomepage.style.width = table.offsetWidth + 'px';
 }
 
@@ -29,18 +29,31 @@ export function resizeUIWrapper(){
 
 export function unclickAdd(e){
     if(!isClickingAddCircle(e) && document.getElementsByClassName("ui_wrapper_clicked")[0] !== undefined && document.getElementsByClassName("ui_wrapper_clicked")[0] !== null){
-        document.getElementsByClassName('ui_wrapper')[0].classList.toggle("clicked");
-        document.body.classList.toggle('ui_wrapper_clicked');
-        document.querySelectorAll(".homepage > *:not(:last-child)").forEach((el) => {
-            el.classList.toggle("ui_wrapper_clicked");
-        })
+        if(!isClickingForm(e)){
+            document.getElementsByClassName('ui_wrapper')[0].classList.toggle("clicked");
+		    document.getElementsByClassName("header_wrapper")[0].classList.toggle("ui_wrapper_clicked");
+		    document.body.classList.toggle('ui_wrapper_clicked');
+		    document.querySelectorAll(".homepage > *:not(:last-child)").forEach((el) => {
+			    el.classList.toggle("ui_wrapper_clicked");
+		    })
+        }
     }
 }
 
 export function isClickingAddCircle(e){
     if(e.target.id === "add_circle") return true;
-    else if (e.target.parentElement === "add_circle") return true;
+    else if(e.target.parentElement !== null && e.target.parentElement.id === 'add_circle') return true;
     return false;
+}
+
+export function isClickingForm(e){
+    let el = e.target;
+    while(el.parentElement !== undefined && el.parentElement !== null){
+        if(el.tagName === "FORM") return true;
+        el = el.parentElement;
+    }
+
+    return (el.tagName === "form") ? true : false;
 }
 
 export function checkHeader(){

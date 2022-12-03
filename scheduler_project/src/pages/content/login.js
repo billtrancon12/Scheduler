@@ -27,11 +27,10 @@ export default class Login extends Component {
         </div>
       )
     }
-    else{
-      return(
-        <Navigate to="/homepage"></Navigate>
-      )
-    }
+    
+    return(
+      <Navigate to="/homepage"></Navigate>
+    )
   }
 
   handleChange(e){
