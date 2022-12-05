@@ -10,7 +10,6 @@ export default class RightHeaderHomepage extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			// inbox: ["Notification", "Testing"]
 			inbox: [],
 		}
 	}
