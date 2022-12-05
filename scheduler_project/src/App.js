@@ -7,6 +7,7 @@ import HomepageContent from './pages/content/homepageContent';
 import { getThisWeekMonday } from './functions/time'
 import axios from 'axios';
 import Settings from './pages/content/settings';
+import Timer from './pages/content/timer';
 
 
 export default class App extends Component {
@@ -36,6 +37,7 @@ export default class App extends Component {
           <Routes>
             <Route path='/' element={<HomepageContent></HomepageContent>}></Route>
 						<Route path='/setting' element={<Settings></Settings>}></Route>
+						<Route path='/timer' element={<Timer></Timer>}></Route>
             <Route path='/*' element={<div>404 Not Found</div>}></Route>
           </Routes>
 				</React.Fragment>

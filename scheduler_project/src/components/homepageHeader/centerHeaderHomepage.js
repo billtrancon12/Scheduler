@@ -12,8 +12,8 @@ export default class CenterHeaderHomepage extends Component {
             <div className='time_wrapper'>
                 <span>{this.props.time}</span>
             </div>
-            <div className='timer_wrapper niceText'>
-                <Link to='/timer'>Timer</Link>
+            <div className='timer_title_wrapper niceText'>
+                <Link to='/homepage/timer'>Timer</Link>
             </div>
         </div>
     )

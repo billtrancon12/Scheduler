@@ -1,5 +1,6 @@
 body{
     overflow: scroll;
+    min-width: 890px;
 }
 
 .description_input{
@@ -68,7 +69,7 @@ body.ui_wrapper_clicked{
     text-align: center;
 }
 
-.timer_wrapper > a{
+.timer_title_wrapper > a{
     text-decoration: none;
     color: black;
 }
@@ -88,7 +89,7 @@ svg > path{
     pointer-events: none;
 }
 
-.calendar_wrapper, .timer_wrapper{
+.calendar_wrapper, .timer_title_wrapper{
     margin-top: 2px;
 }
 
